@@ -1,2 +1,2 @@
 # graduationProject
-COVID-19 DNA analysis
+COVID-19 RNA analysis
