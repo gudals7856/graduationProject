@@ -1,0 +1,5 @@
+GenBank	RefSeq	Gene Region
+MN975262		complete
+MN994467		complete
+MT007544		complete
+LC522974		complete
