@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>웹으로 계통수 쉽게 따라 그리기</title> 
+        <script type="text/javascript" src="raphael-min.js" ></script> 
+        <script type="text/javascript" src="jsphylosvg-min.js"></script> 
+        <script type="text/javascript">
+
+        var $id = function (id) { return document.getElementById(id); } 
+        var $name = function (name) { return document.getElementsByName (name); }
+        
+        var drawTree = function ()
+        {
+            var dataType = $name("dataType"); 
+            var dataTypeVal = ((dataType[2].checked) ? dataType [2].value
+                            : (dataType[1].checked) ? dataType [1].value 
+                            : (dataType[0].checked) ? dataType [0].value
+                            : "newick");
+            var data_type = dataTypeVal; 
+            var data_value = $id("txta").value; 
+            var tree_width = 300; 
+            var tree_height = 300; 
+            var tree_position = "draw_here";
+            var tree_type = "tree"; //tree, circular
+
+            if(dataTypeVal == "nexml"){ 
+                phylocanvas = new Smits.PhyloCanvas(
+                    {nexml:data_value} , tree_position, tree_width, tree_height, tree_type);
+            }
+        
+            else if(dataTypeVal == "phyloxml"){ 
+                phylocanvas = new Smits.PhyloCanvas(
+                    {phyloxml:data_value}, tree_position, tree_width, tree_height, tree_type);
+            }
+
+            else { //default 
+                phylocanvas = new Smits.PhyloCanvas(
+                    {newick:data_value} , tree_position, tree_width, tree_height, tree_type);
+            }
+        };
+        </script>
+    </head>
+
+    <body>
+        <li>데이터 포맷 </li> 
+        <input type="radio" name="dataType" value="newick"> Newick Format 
+        <input type="radio" name="dataType" value="phyloxml"> phyloXML Format 
+        <input type="radio" name="dataType" value="nexml"> NeXML Format 
+        <br/><br/>
+
+        <li>계통수 데이터</li> 
+        <textarea id="txta" style="width:500px; height: 200px;"></textarea> 
+        <br/>
+        <button id = "btn" onClick = "drawTree();"> tree그리기 (Click) </button>
+        <br/><br/>
+        <li>결과</li>
+        
+        <div id="draw_here"></div> 
+
+    </body>
+
+    
+</html>
