@@ -1,5 +1,5 @@
 # GraduationProject
-> COVID-19 RNA analysis
+> COVID-19 RNA analysis.
 
 ---
 
