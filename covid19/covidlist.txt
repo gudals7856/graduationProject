@@ -8,3 +8,6 @@ KU131570		complete
 MH940245		complete
 NC_001451		complete
 NC_010646		complete
+GenBank	RefSeq	Gene Region
+NC_045512		complete
+NC_001451		complete
