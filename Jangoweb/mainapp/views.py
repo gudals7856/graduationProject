@@ -22,10 +22,6 @@ def compare_visualization(request):
     template = loader.get_template('compare-visualization.html')
     return HttpResponse(template.render(None, request))
 
-def covid_about(request):
-    template = loader.get_template('covid-about.html')
-    return HttpResponse(template.render(None, request))
-
 def covid_data_collect(request):
     template = loader.get_template('covid-data-collect.html')
     return HttpResponse(template.render(None, request))
@@ -51,7 +47,7 @@ def intro_algorithm(request):
     return HttpResponse(template.render(None, request))
 
 def intro_team(request):
-    template = loader.get_template('intro_team.html')
+    template = loader.get_template('intro-team.html')
     return HttpResponse(template.render(None, request))
 
 

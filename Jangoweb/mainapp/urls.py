@@ -7,7 +7,6 @@ urlpatterns = [
     path('compare-lowfatality/', views.index, name='compare-lowfatality'),
     path('compare-mers-sars/', views.compare_mers_sars, name='compare-mers-sars'),
     path('compare-visualization/', views.compare_visualization, name='compare-visualization'),
-    path('covid-about/', views.covid_about, name='covid-about'),
     path('covid-data-collect/', views.covid_data_collect, name='covid-data-collect'),
     path('covid-result/', views.covid_result, name='covid-result'),
     path('covid-sequence-alignment/', views.covid_sequence_alignment, name='covid-sequence-alignment'),
