@@ -55,18 +55,18 @@ def intro_team(request):
     template = loader.get_template('intro-team.html')
     return HttpResponse(template.render(None, request))
 
-@method_decorator(csrf_exempt,name='dispatch')
 def execute(request):
     #template = loader.get_template('execute.html')
     # return HttpResponse(template.render(None, request))
 
     if request.method == "POST":
-        name1 = request.POST.get('namecode1')
-        name2 = request.POST.get('namecode2')
+        name1 = request.POST['namecode1']
+        name2 = request.POST['namecode2']
+        sequence_obj1 = Sequence.objects.get(namecode=name1)
+        sequence_obj2 = Sequence.objects.get(namecode=name2)
+        context = {'sequence_obj1': sequence_obj1, 'sequence_obj2': sequence_obj2}  # 더 보내고 싶으면 추가해라
 
-        sequence1 = Sequence()
-        if name1 == sequence1.getNamecode():
-            return render(request, 'execute.html', context={'text': name1})
+        return render(request, 'execute.html', context)
 
     else:
         return render(request, 'execute.html')
