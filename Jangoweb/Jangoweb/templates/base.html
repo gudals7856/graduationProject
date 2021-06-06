@@ -13,15 +13,19 @@
         crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
         crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 80px 0px 0px 230px;
+        }
+    </style>
 </head>
 
 <body class="sb-nav-fixed">
 
     <!-- top Navbar-->
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.html">Home</a>
-        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#!"><i
-                class="fas fa-bars"></i></button>
+        <a class="navbar-brand" href="{% url 'index' %}">Home</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
 
         <!--Navbar Search 상단 검색 창-->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -30,14 +34,12 @@
     </nav>
 
     <!-- side Navbar-->
-    </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <div class="sb-sidenav-menu-heading">일단 놔둠</div>
-
+                        <div class="sb-sidenav-menu-heading">Menu</div>
 
                         {% block menu1 %}{% endblock %}
                         <!-- <a class="nav-link collapsed" href="index.html" data-toggle="collapse" data-target="#collapseSummary"
@@ -49,9 +51,9 @@
                         <div class="collapse" id="collapseSummary" aria-labelledby="headingOne"
                             data-parent="#sidenavAccordion" style="font-size: 13px;">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="{% url 'index' %}">프로젝트 소개</a>
-                                <a class="nav-link" href="{% url 'intro-algorithm' %}">알고리즘 설명</a>
-                                <a class="nav-link" href="{% url 'intro-team' %}">팀 구성원</a>
+                                <a class="nav-link" href="{% url 'index' %}">Ⅰ. 프로젝트 소개</a>
+                                <a class="nav-link" href="{% url 'intro-algorithm' %}">Ⅱ. 알고리즘 설명</a>
+                                <a class="nav-link" href="{% url 'intro-team' %}">Ⅲ. 팀 구성원</a>
                             </nav>
                         </div>
 
@@ -65,10 +67,10 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-parent="#sidenavAccordion" style="font-size: 13px;">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="{% url 'covid-data-collect' %}">COVID-19 데이터 수집</a>
-                                <a class="nav-link" href="{% url 'covid-sequence-alignment' %}">Sequence Alignment</a>
-                                <a class="nav-link" href="{% url 'covid-visualization' %}">Visualization</a>
-                                <a class="nav-link" href="{% url 'covid-result' %}">결과 및 의의</a>
+                                <a class="nav-link" href="{% url 'covid-data-collect' %}">Ⅰ. COVID-19 데이터 수집</a>
+                                <a class="nav-link" href="{% url 'covid-sequence-alignment' %}">Ⅱ. Sequence Alignment</a>
+                                <a class="nav-link" href="{% url 'covid-visualization' %}">Ⅲ. Visualization</a>
+                                <a class="nav-link" href="{% url 'covid-result' %}">Ⅳ. 결과 및 의의</a>
                             </nav>
                         </div>
 
@@ -82,13 +84,19 @@
                         <div class="collapse" id="collapseAnother" aria-labelledby="headingOne"
                             data-parent="#sidenavAccordion" style="font-size: 13px;">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="{% url 'compare-data-collect' %}">CORONA VIRUS 종류 소개</a>
-                                <a class="nav-link" href="{% url 'compare-visualization' %}">Visualization</a>
-                                <a class="nav-link" href="{% url 'compare-animal' %}">COVID-19 vs Animal</a>
-                                <a class="nav-link" href="{% url 'compare-lowfatality' %}">COVID-19 vs 낮은 치사율</a>
-                                <a class="nav-link" href="{% url 'compare-mers-sars' %}">COVID-19 vs MERS,SARS</a>
+                                <a class="nav-link" href="{% url 'compare-data-collect' %}">Ⅰ. CORONA VIRUS 종류 소개</a>
+                                <a class="nav-link" href="{% url 'compare-visualization' %}">Ⅱ. Visualization</a>
+                                <a class="nav-link" href="{% url 'compare-animal' %}">Ⅲ. COVID-19 vs Animal</a>
+                                <a class="nav-link" href="{% url 'compare-lowfatality' %}">Ⅳ. COVID-19 vs 낮은 치사율</a>
+                                <a class="nav-link" href="{% url 'compare-mers-sars' %}">Ⅴ. COVID-19 vs MERS,SARS</a>
                             </nav>
                         </div>
+
+                        <div class="sb-sidenav-menu-heading">Execution</div>
+                        <a class="nav-link" href="{% url 'execute' %}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            실제 실행
+                        </a>
                     </div>
                 </div>
             </nav>

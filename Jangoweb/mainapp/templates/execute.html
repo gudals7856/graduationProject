@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+
 {% block menu1 %}
 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSummary"
    aria-expanded="false" aria-controls="collapseSummary">
@@ -9,8 +10,9 @@
 </a>
 {% endblock %}
 
+
 {% block menu2 %}
-<a class="nav-link collapsed" href="{% url 'covid-data-collect' %}" data-toggle="collapse" data-target="#collapseLayouts"
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts"
    aria-expanded="false" aria-controls="collapseLayouts">
     <div class="sb-nav-link-icon"><i class="fas fa-atom"></i></div>
     COVID-19<br>
@@ -19,11 +21,12 @@
 </a>
 {% endblock %}
 
+
 {% block menu3 %}
 <a class="nav-link collapsed" href="#" data-toggle="collapse"
    data-target="#collapseAnother" aria-expanded="false" aria-controls="collapseAnother">
     <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
-    COVID-19 <br>
+    COVID-19<br>
     vs 타 코로나 바이러스
     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
 </a>
@@ -36,10 +39,21 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid">
-            <h1 class="mt-4"></h1>
-            <img src="{% static 'image/데이터수집1.png' %}">
-            <img src="{% static 'image/데이터수집2.png' %}">
-            <img src="{% static 'image/데이터수집3.png' %}">
+            <form action="{% url 'execute' %}" method="post">
+                {% csrf_token %}
+                <div>
+                    <input type="text" name="namecode1" placeholder="namecode1">
+                    <input type="submit" class="btn btn-primary" value="submit">
+                </div>
+                <div>
+                    <input type="text" name="namecode2" placeholder="namecode2">
+                </div>
+            </form>
+
+            <h1>
+                {{ text }}
+            </h1>
+
         </div>
     </main>
 </div>
