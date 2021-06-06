@@ -38,23 +38,45 @@
 
 <div id="layoutSidenav_content">
     <main>
-        <div class="container-fluid">
-            <form action="{% url 'execute' %}" method="post">
-                {% csrf_token %}
-                <div>
-                    <input type="text" name="namecode1" placeholder="namecode1">
-                    <input type="submit" class="btn btn-primary" value="submit">
-                </div>
-                <div>
-                    <input type="text" name="namecode2" placeholder="namecode2">
-                </div>
-            </form>
+        <form action="{% url 'execute' %}" method="POST">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                {% csrf_token %}
+                                <div>
+                                    <input type="text" name="namecode1" placeholder="namecode1">
+                                </div>
 
-            <h1>
-                {{ text }}
-            </h1>
+                            </div>
+                            <div class="card-body">
+                                {% if sequence_obj1 %}
+                                {{ sequence_obj1.sequence }}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
 
-        </div>
+                    <div class="col-lg-6">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                {% csrf_token %}
+                                <div>
+                                    <input type="text" name="namecode2" placeholder="namecode2">
+                                    <input type="submit" class="btn btn-primary" value="submit">
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                {% if sequence_obj2 %}
+                                {{ sequence_obj2.sequence }}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </main>
 </div>
 {% endblock %}
