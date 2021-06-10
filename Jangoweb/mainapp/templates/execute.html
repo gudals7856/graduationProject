@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 
-
 {% block menu1 %}
 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSummary"
    aria-expanded="false" aria-controls="collapseSummary">
@@ -38,19 +37,30 @@
 
 <div id="layoutSidenav_content">
     <main>
-        <form action="{% url 'execute' %}" method="POST">
+        <form name="namecodeForm" action="{% url 'execute' %}" method="POST">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="card mb-4">
                             <div class="card-header">
                                 {% csrf_token %}
-                                <div>
-                                    <input type="text" name="namecode1" placeholder="namecode1">
-                                </div>
+<!--                                <div>-->
+<!--                                    <input type="text" name="namecode1" placeholder="namecode1">-->
+<!--                                </div>-->
+                                <select id="namecode1" name="namecode1">
+                                    <option value="NC_045512">NC_045512 (COVID-19)</option>
+                                    <option value="NC_004718">NC_004718 (SARS)</option>
+                                    <option value="NC_019843">NC_019843 (MERS)</option>
+                                    <option value="KU131570">KU131570 (HCoV OC43)</option>
+                                    <option value="MH940245">MH940245 (HCoV HKU1)</option>
+                                    <option value="KU291448">KU291448 (HCoV 229E)</option>
+                                    <option value="KF530114">KF530114 (HCoV NL63)</option>
+                                    <option value="NC_001451">NC_001451 (Avian coronavirus)</option>
+                                    <option value="NC_010646">NC_010646 (Beluga Whale coronavirus)</option>
+                                </select>
 
                             </div>
-                            <div class="card-body">
+                            <div class="card-body" style="overflow:auto; height:300px;">
                                 {% if sequence_obj1 %}
                                 {{ sequence_obj1.sequence }}
                                 {% endif %}
@@ -62,18 +72,26 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 {% csrf_token %}
-                                <div>
-                                    <input type="text" name="namecode2" placeholder="namecode2">
-                                    <input type="submit" class="btn btn-primary" value="submit">
-                                </div>
+                                <select id="namecode2" name="namecode2">
+                                    <option value="NC_045512">NC_045512 (COVID-19)</option>
+                                    <option value="NC_004718">NC_004718 (SARS)</option>
+                                    <option value="NC_019843">NC_019843 (MERS)</option>
+                                    <option value="KU131570">KU131570 (HCoV OC43)</option>
+                                    <option value="MH940245">MH940245 (HCoV HKU1)</option>
+                                    <option value="KU291448">KU291448 (HCoV 229E)</option>
+                                    <option value="KF530114">KF530114 (HCoV NL63)</option>
+                                    <option value="NC_001451">NC_001451 (Avian coronavirus)</option>
+                                    <option value="NC_010646">NC_010646 (Beluga Whale coronavirus)</option>
+                                </select>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body" style="overflow:auto; height:300px;">
                                 {% if sequence_obj2 %}
                                 {{ sequence_obj2.sequence }}
                                 {% endif %}
                             </div>
                         </div>
                     </div>
+                    <input type="submit" class="btn btn-primary" value="submit" style="margin: 5px auto 5px auto;">
                 </div>
             </div>
         </form>
