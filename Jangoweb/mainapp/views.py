@@ -1,10 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
 
 from mainapp.models import Sequence
+from mainapp.models import Alignment
 
 
 def compare_animal(request):
@@ -56,19 +55,20 @@ def intro_team(request):
     return HttpResponse(template.render(None, request))
 
 def execute(request):
-    #template = loader.get_template('execute.html')
-    # return HttpResponse(template.render(None, request))
 
     if request.method == "POST":
         name1 = request.POST['namecode1']
         name2 = request.POST['namecode2']
+
+        if name1 == name2:
+            return render(request, 'execute.html')
+
         sequence_obj1 = Sequence.objects.get(namecode=name1)
         sequence_obj2 = Sequence.objects.get(namecode=name2)
-        context = {'sequence_obj1': sequence_obj1, 'sequence_obj2': sequence_obj2}  # 더 보내고 싶으면 추가해라
+        alignment_obj = Alignment.objects.get(namecode1=name1, namecode2=name2)
+        context = {'sequence_obj1': sequence_obj1, 'sequence_obj2': sequence_obj2, 'alignment_obj': alignment_obj}  # 더 보내고 싶으면 추가해라
 
         return render(request, 'execute.html', context)
 
     else:
         return render(request, 'execute.html')
-
-# Create your views here.

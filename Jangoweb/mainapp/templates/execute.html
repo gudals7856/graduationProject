@@ -39,14 +39,16 @@
     <main>
         <form name="namecodeForm" action="{% url 'execute' %}" method="POST">
             <div class="container-fluid">
+                <br><br><br><br>
+                <div style="margin: 0px auto 0px auto">
+                    <h3>데이터 입력</h3>
+                </div>
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="card mb-4">
                             <div class="card-header">
                                 {% csrf_token %}
-<!--                                <div>-->
-<!--                                    <input type="text" name="namecode1" placeholder="namecode1">-->
-<!--                                </div>-->
+                                Select Namecode1 :
                                 <select id="namecode1" name="namecode1">
                                     <option value="NC_045512">NC_045512 (COVID-19)</option>
                                     <option value="NC_004718">NC_004718 (SARS)</option>
@@ -72,6 +74,7 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 {% csrf_token %}
+                                Select Namecode2 :
                                 <select id="namecode2" name="namecode2">
                                     <option value="NC_045512">NC_045512 (COVID-19)</option>
                                     <option value="NC_004718">NC_004718 (SARS)</option>
@@ -91,10 +94,28 @@
                             </div>
                         </div>
                     </div>
-                    <input type="submit" class="btn btn-primary" value="submit" style="margin: 5px auto 5px auto;">
+                    <input type="submit" class="btn btn-primary" value="Alignment" style="margin: 5px auto 5px auto; width:200px">
+                </div>
+                <br>
+                <h3>Alignment 결과</h3>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card mb-4" style="width:700px">
+                            <div class="card-body" style="overflow:auto; height:1000px;">
+                                {% if alignment_obj %}
+                                <pre>{{ alignment_obj.align_sequence }}</pre>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin:0px 0px 0px 20px; height:400px; width:100px">
+                        <img src="{{ alignment_obj.image }}">
+                    </div>
                 </div>
             </div>
         </form>
     </main>
 </div>
+
+
 {% endblock %}
