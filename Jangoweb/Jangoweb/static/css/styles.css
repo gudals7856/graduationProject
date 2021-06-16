@@ -3981,7 +3981,7 @@ input[type=button].btn-block {
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
   margin-right: 1rem;
-  font-size: 0.95rem;
+  font-size: 1.5rem;
   line-height: inherit;
   white-space: nowrap;
 }
@@ -6175,7 +6175,7 @@ button.bg-light:focus {
 }
 
 .bg-dark {
-  background-color: #B48966 !important;
+  background-color: #a9a9a9 !important;
 }
 
 a.bg-dark:hover, a.bg-dark:focus,

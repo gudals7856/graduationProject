@@ -1,6 +1,9 @@
 from django.urls import path
 from . import views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('compare-animal/', views.compare_animal, name='compare-animal'),
     path('compare-data-collect/', views.compare_data_collect, name='compare-data-collect'),
@@ -15,5 +18,6 @@ urlpatterns = [
     path('intro-algorithm/', views.intro_algorithm, name='intro-algorithm'),
     path('intro-team/', views.intro_team, name='intro-team'),
     path('execute/', views.execute, name='execute'),
-
 ]
+
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

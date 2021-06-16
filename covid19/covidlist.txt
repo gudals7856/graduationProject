@@ -1,0 +1,3 @@
+GenBank	RefSeq	Gene Region
+MH940245		complete
+MH940245		complete
