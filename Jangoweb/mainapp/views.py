@@ -66,7 +66,7 @@ def execute(request):
         sequence_obj1 = Sequence.objects.get(namecode=name1)
         sequence_obj2 = Sequence.objects.get(namecode=name2)
         alignment_obj = Alignment.objects.get(namecode1=name1, namecode2=name2)
-        context = {'sequence_obj1': sequence_obj1, 'sequence_obj2': sequence_obj2, 'alignment_obj': alignment_obj}  # 더 보내고 싶으면 추가해라
+        context = {'sequence_obj1': sequence_obj1, 'sequence_obj2': sequence_obj2, 'alignment_obj': alignment_obj}
 
         return render(request, 'execute.html', context)
 

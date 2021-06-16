@@ -27,6 +27,16 @@
             background-color: #363532;
             color: rgba(255, 255, 255, 0.5);
         }
+
+        .navbar-brand {
+            display: inline-block;
+            padding-top: 0.3125rem;
+            padding-bottom: 0.3125rem;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            line-height: inherit;
+            white-space: nowrap;
+        }
     </style>
 </head>
 
@@ -34,12 +44,19 @@
 
 <!-- top Navbar-->
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <a class="navbar-brand" href="{% url 'index' %}">Home</a>
+    <a class="navbar-brand" href="{% url 'index' %}">
+        <div class="row">
+            <img src="{% static 'image/titleimage.png' %}" height="40" width="40">
+            <div style="margin:3px 0px 0px 4px">
+                <span style="font-family:Fantasy">BYECOVID19</span>
+            </div>
+        </div>
+    </a>
     <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
 
     <!--Navbar Search 상단 검색 창-->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-        <a class="navbar-brand">COVID-19 염기서열 분석 및 시각화</a>
+        <a style="color:white; font-size:18px">COVID-19 염기서열 데이터 분석 및 응용</a>
     </form>
 </nav>
 
@@ -77,9 +94,9 @@
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                          data-parent="#sidenavAccordion" style="font-size: 13px;">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="{% url 'covid-data-collect' %}">Ⅰ. COVID-19 데이터 수집</a>
-                            <a class="nav-link" href="{% url 'covid-sequence-alignment' %}">Ⅱ. Sequence Alignment</a>
-                            <a class="nav-link" href="{% url 'covid-visualization' %}">Ⅲ. Visualization</a>
+                            <a class="nav-link" href="{% url 'covid-data-collect' %}">Ⅰ. COVID-19 염기서열 데이터 수집</a>
+                            <a class="nav-link" href="{% url 'covid-sequence-alignment' %}">Ⅱ. COVID-19 염기서열 데이터 분석</a>
+                            <a class="nav-link" href="{% url 'covid-visualization' %}">Ⅲ. 시각화</a>
                             <a class="nav-link" href="{% url 'covid-result' %}">Ⅳ. 결과 및 의의</a>
                         </nav>
                     </div>
@@ -94,11 +111,11 @@
                     <div class="collapse" id="collapseAnother" aria-labelledby="headingOne"
                          data-parent="#sidenavAccordion" style="font-size: 13px;">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="{% url 'compare-data-collect' %}">Ⅰ. CORONA VIRUS 종류 소개</a>
-                            <a class="nav-link" href="{% url 'compare-visualization' %}">Ⅱ. Visualization</a>
-                            <a class="nav-link" href="{% url 'compare-animal' %}">Ⅲ. COVID-19 vs Animal</a>
-                            <a class="nav-link" href="{% url 'compare-lowfatality' %}">Ⅳ. COVID-19 vs 낮은 치사율</a>
-                            <a class="nav-link" href="{% url 'compare-mers-sars' %}">Ⅴ. COVID-19 vs MERS,SARS</a>
+                            <a class="nav-link" href="{% url 'compare-data-collect' %}">Ⅰ. Corona Virus 종류 소개</a>
+                            <a class="nav-link" href="{% url 'compare-visualization' %}">Ⅱ. Corona Virus 서열 분석</a>
+                            <a class="nav-link" href="{% url 'compare-animal' %}">Ⅲ. COVID-19 vs Animal Infection Corona Virus</a>
+                            <a class="nav-link" href="{% url 'compare-lowfatality' %}">Ⅳ. COVID-19 vs Human Infection Corona Virus</a>
+                            <a class="nav-link" href="{% url 'compare-mers-sars' %}">Ⅴ. COVID-19 vs MERS·SARS</a>
                         </nav>
                     </div>
 
@@ -125,6 +142,7 @@
 <script src="{% static 'assets/demo/chart-bar-demo.js' %}"></script>
 <script src="{% static 'assets/demo/chart-pie-demo.js' %}"></script>
 
+<br><br><br><br><br>
 <footer class="py-4 bg-light mt-auto" style="margin: 0px 0px 0px -250px;">
     <div class="container-fluid">
         <div class="d-flex align-items-center justify-content-between small">
