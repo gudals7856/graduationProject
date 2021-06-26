@@ -1,5 +1,0 @@
-GenBank	RefSeq	Gene Region	Collection Date	Locality
-LC522972		complete	Jan-20	Japan
-LC522973		complete	Jan-20	Japan
-MN975262		complete	11-Jan-20	China
-MN985325		complete	19-Jan-20	USA: WA
