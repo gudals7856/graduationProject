@@ -18,6 +18,7 @@ urlpatterns = [
     path('intro-algorithm/', views.intro_algorithm, name='intro-algorithm'),
     path('intro-team/', views.intro_team, name='intro-team'),
     path('execute/', views.execute, name='execute'),
+    path('', views.index, name='index'),
 ]
 
 # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
