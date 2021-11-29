@@ -1,3 +1,4 @@
 GenBank	RefSeq	Gene Region
-MH940245		complete
-MH940245		complete
+LC522974		complete
+MN975262		complete
+MN996530		complete
